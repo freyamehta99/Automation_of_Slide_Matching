@@ -1,6 +1,7 @@
 from PIL import Image
 from math import exp
 import numpy as np
+import sys
 
 def load_image( infilename ) :
     img = Image.open( infilename )
@@ -10,8 +11,12 @@ def load_image( infilename ) :
 
 from os import listdir
 from os.path import isfile, join
-frames = ['./frames/'+f for f in listdir('frames') if isfile(join('frames', f))]
-slides = ['./slides/'+f for f in listdir('slides') if isfile(join('slides', f))]
+
+fr = sys.argv[2]
+sl = sys.argv[1]
+
+frames = [fr+f for f in listdir(fr) if isfile(join(fr, f))]
+slides = [sl+f for f in listdir(sl) if isfile(join(sl, f))]
 frames.sort()
 
 #print(frames,slides)
@@ -53,12 +58,19 @@ for i in frames:
 	m_s=''
 	for j in slides:
 		curr_val=foo(load_image(i),load_image(j))
-		print(i,j,curr_val)
+		# print(i,j,curr_val)
 		if curr_val>m_val:
 			m_val=curr_val
 			m_s=j
 	results[i]=m_s
+	print(results[i], i)
 
-print("\n\nRESULTS\n\n")
-for i in results:
-	print(i,results[i])
+with open('20171118.txt', 'w') as roll_num:
+	roll_num.write('\nRESULTS\n\n')
+	for i in results:
+		roll_num.write(i)
+		roll_num.write(results[i])
+		roll_num.write('\n')
+
+
+# print("\n\nRESULTS\n\n")

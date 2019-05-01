@@ -1,6 +1,12 @@
 # Automation_of_Slide_Matching
 Project on Digital Signal Analysis and Application
 
+# Team Members
+Akshay Kharbanda - 20171037
+Sarthak Singh - 20171118
+Freya Mehta - 20171184
+
+
 Problem Statement.
 These days, the demand for online lectures is increasing. For better visual experience,
 along with the video of the lecture, soft copy of the slides is also being embedded into the
@@ -16,3 +22,14 @@ You may evaluate the performance of your algorithm on the given data. We would b
 testing on a more robust dataset.
 Also note that the sampled frames are almost aligned with the corresponding ground truth
 slide using homography.
+
+# To run the file
+
+Execute the command : python3 <rollno>.py <path/to/slides/directory> <path/to/frames/directory>
+
+NOTE : (In the path, remember to specify the "/" at the end of the path to ensure the script runs!)
+
+# Output
+
+Output of the script is directed to <rollno>.txt
+
